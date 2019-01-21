@@ -29,6 +29,12 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    ENV.apiUrl = 'http://api-gateway-dev.phorest.com/third-party-api-server/api/business/';
+
+    ENV.businessId = 'eTC3QY5W3p_HmGHezKfxJw';
+    // This is possibly a clientId
+    ENV.branchId = 'SE-J0emUgQnya14mOGdQSw';
   }
 
   if (environment === 'test') {
@@ -45,6 +51,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV.apiUrl = 'http://api-gateway-dev.phorest.com/third-party-api-server/api/'
   }
 
   return ENV;
