@@ -31,8 +31,10 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
     ENV.apiUrl = 'http://api-gateway-dev.phorest.com/third-party-api-server/api/business/';
-
     ENV.businessId = 'eTC3QY5W3p_HmGHezKfxJw';
+
+    ENV.businessApiUrl = ENV.apiUrl + ENV.businessId;
+
     // This is possibly a clientId
     ENV.branchId = 'SE-J0emUgQnya14mOGdQSw';
   }
