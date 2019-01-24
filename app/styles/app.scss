@@ -1,0 +1,38 @@
+
+@import "ember-bootstrap/bootstrap";
+
+@import 'header';
+@import 'clients-table';
+@import 'client-row';
+
+.container-fluid {
+  @include media-breakpoint-up(sm) {
+    padding: 35px;
+  }
+  @include media-breakpoint-down(sm) {
+    padding-top: 15px;
+  }
+  .sidepanel {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6em;
+    margin-bottom: 15px;
+    .circle-span {
+      @include border-radius(20px);
+      padding: 5px;
+      background-color: #E0E0E0;
+    }
+    h6, label {
+      margin-top: 15px;
+    }
+    .small-info {
+      line-height: 1.2em;
+      font-size: 10px;
+    }
+  }
+  .form-control {
+    &.small {
+      max-width: 300px;
+    }
+  }
+}
