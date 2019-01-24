@@ -1,6 +1,5 @@
 import DS from 'ember-data';
 import ENV from 'phorapp/config/environment'
-import AdapterFetch from 'ember-fetch/mixins/adapter-fetch';
 
 export default DS.RESTAdapter.extend({
 
