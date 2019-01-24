@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-4 col-lg-3 sidepanel">
+      <h3>User Profile: {{client.fullName}}</h3>
+      <label for="email">E-mail</label>
+      <div name="email">{{client.email}}</div>
+      <label for="phone">Phone (Mobile | Landline)</label>
+      <div name="phone">{{client.phone}} | {{client.landline}}</div>
+    </div>
+
+    <div class="col-xs-12 col-md-8 col-lg-9">
+      {{#bs-form model=newVoucher onSubmit=(action "createVoucher") as |form|}}
+        {{#form.element value=newVoucher.originalBalance label="Voucher value" placeholder="Balance" property="originalBalance" as |el|}}
+          <div class="input-group">
+            <input value={{el.value}} class="form-control small" placeholder="Balance" oninput={{action (mut el.value) value="target.value"}} onchange={{action (mut el.value) value="target.value"}} id={{el.id}} type="number">
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="zmdi zmdi-money"></i></span>
+            </div>
+          </div>
+        {{/form.element}}
+        {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
+      {{/bs-form}}
+    </div>
+  </div>
+</div>
