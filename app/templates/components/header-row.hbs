@@ -1,0 +1,9 @@
+{{#if hasBlock}}
+  {{yield (hash
+            header=(component "header-column" onClick=(action "onClickColumn"))
+          )}}
+{{else}}
+  {{#each columns as |column index|}}
+    {{header-column index=index slug=column.id label=column.label sortable=column.sortable order=column.order name=column.name onClick=(action "onClickColumn")}}
+  {{/each}}
+{{/if}}
