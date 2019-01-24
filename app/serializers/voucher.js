@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend({
-  primaryKey: 'clientId',
+  primaryKey: 'voucherId',
 
   /**
    * Ember data expects model name to be the key of the JSON Object for serialization
@@ -17,9 +17,9 @@ export default DS.RESTSerializer.extend({
     } else {
       payload.meta = JSON.parse(JSON.stringify(payload.page));
       if (payload._embedded) {
-        payload.clients = JSON.parse(JSON.stringify(payload._embedded.clients));
+        payload.vouchers = JSON.parse(JSON.stringify(payload._embedded.vouchers));
       } else {
-        payload.clients = [];
+        payload.vouchers = [];
       }
 
       delete payload.page;
