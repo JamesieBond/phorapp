@@ -20,6 +20,17 @@
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/phorapp.js"></script>
 
+    <script>
+      (function() {
+        var material = document.createElement('link');
+        material.type = 'text/css';
+        material.rel = 'stylesheet';
+        material.href = 'https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css';
+        var m = document.getElementsByTagName('link')[0];
+        m.parentNode.insertBefore(material, m);
+      })();
+    </script>
+
     {{content-for "body-footer"}}
   </body>
 </html>
