@@ -17,8 +17,7 @@ export default DS.RESTAdapter.extend({
    */
   pathForType(type) {
     switch (type) {
-      case "client": return type;
-      default: return pluralize(type);
+      default: return type;
     }
   },
 
