@@ -1,8 +1,19 @@
 
-Testing a api connection
-
-{{#each model as |client|}}
-  {{client.id}}
-{{/each}}
-
+{{#bs-navbar type="dark" backgroundColor="dark" collapsed=collapsed onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
+  <div class="navbar-header">
+    {{navbar.toggle}}
+    {{#link-to "clients" class="navbar-brand"}}Phorapp Home{{/link-to}}
+  </div>
+  {{#navbar.content}}
+    {{#navbar.nav as |nav|}}
+      {{#nav.item}}{{#nav.link-to "clients"}}Clients{{/nav.link-to}}{{/nav.item}}
+      {{#nav.dropdown as |dd|}}
+        {{#dd.toggle}}Coming Soon <span class="caret"></span>{{/dd.toggle}}
+        {{#dd.menu as |ddm|}}
+          {{#ddm.item}}Not Active{{/ddm.item}}
+        {{/dd.menu}}
+      {{/nav.dropdown}}
+    {{/navbar.nav}}
+  {{/navbar.content}}
+{{/bs-navbar}}
 {{outlet}}
