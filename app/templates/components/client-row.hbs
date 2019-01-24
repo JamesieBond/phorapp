@@ -1,0 +1,9 @@
+
+<div class="client-row__column">{{client.fullName}}</div>
+<div class="client-row__column">{{client.email}}</div>
+<div class="client-row__column">{{client.gender}}</div>
+<div class="client-row__column">{{client.mobile}}</div>
+<div class="client-row__column">{{client.notes}}</div>
+{{#link-to 'client' client class="client-row__column"}}
+  View Client <i class="zmdi zmdi-arrow-right"></i>
+{{/link-to}}

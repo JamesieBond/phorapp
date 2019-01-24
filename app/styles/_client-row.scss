@@ -1,0 +1,57 @@
+.client-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 3px;
+  background-color: #F5F5F5;
+  height: 60px;
+  justify-content: center;
+  align-content: center;
+
+  &__column {
+    flex-basis: 0;
+    flex-grow: 1;
+    font-size: 12px;
+    align-self: center;
+    font-weight: 600;
+    padding: 0 10px;
+    user-select: none;
+
+    &:nth-child(2) {
+      flex-grow: 2;
+    }
+
+    transition: color 0.3s ease-in, border-color 0.3s ease-in;
+
+    &--sortable {
+      cursor: pointer;
+
+      &:hover {
+        color: #212121;
+      }
+    }
+
+    &--sorted {
+      color: #212121;
+    }
+
+    & > .icon {
+      font-size: 12px;
+      margin-left: 4px;
+    }
+  }
+
+  &--bordered {
+    .header__column {
+      border-bottom: 4px solid #BDBDBD;
+      padding-bottom: 8px;
+      line-height: 13px;
+
+      &--sortable {
+        &:hover {
+          border-color: #212121;
+        }
+      }
+    }
+  }
+}
