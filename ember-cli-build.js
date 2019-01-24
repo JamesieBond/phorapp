@@ -1,6 +1,8 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+let env = process.env.EMBER_ENV;
+let config = require('./config/environment')(env);
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
@@ -10,6 +12,38 @@ module.exports = function(defaults) {
       registrationStrategy: 'inline',
       versionStrategy: 'every-build'
     },
+
+    'asset-cache': {
+      // which asset files to include, glob paths are allowed!
+      // defaults to `['assets/**/*']`
+      include: [
+        'assets/images/*',
+        'fonts/fonts/.*'
+      ],
+
+      // which asset files to exclude, glob paths are allowed!
+      exclude: [],
+    },
+
+    'esw-cache-fallback': {
+      patterns: [
+        config.businessApiUrl + '(.+)'
+      ],
+    },
+
+    outputPaths: {
+      app: {
+        css: {
+          'app': '/assets/phorapp.css'
+        }
+      }
+    },
+
+    'ember-bootstrap': {
+      'bootstrapVersion': 4,
+      'importBootstrapFont': false,
+      'importBootstrapCSS': false
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated
