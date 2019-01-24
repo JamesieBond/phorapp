@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-3 col-lg-2 sidepanel">
+      <h3>Welcome to Your Client Dashboard</h3>
+
+      <div>Total Clients <span class="circle-span">{{clients.totalClients}}</span></div>
+      <div>Searched Clients <span class="circle-span">{{clients.meta.totalElements}}</span></div>
+
+      <label for="email">E-mail (Must be complete E-mail)</label>
+      <div class="input-group">
+        {{input id="input-client-email"
+          placeholder="Email"
+          name="email"
+          type="email"
+          value=clients.email
+          class="form-control search"}}
+        <div class="input-group-append">
+          <span class="input-group-text"><i class="zmdi zmdi-search"></i></span>
+        </div>
+      </div>
+      <label for="phone">Phone (Must be complete Phone)</label>
+      <div class="input-group">
+        {{input id="input-client-phone"
+          placeholder="Phone"
+          name="phone"
+          type="number"
+          value=clients.phone
+          class="form-control search"}}
+        <div class="input-group-append">
+          <span class="input-group-text"><i class="zmdi zmdi-search"></i></span>
+        </div>
+      </div>
+      <h6>Results Info</h6>
+      <div class="small-info"> Current Page = {{clients.meta.number}}</div>
+      <div class="small-info"> Per Page = {{clients.meta.size}}</div>
+      <div class="small-info"> Current Page = {{clients.meta.totalPages}}</div>
+    </div>
+    <div class="col-xs-12 col-md-9 col-lg-10">
+      {{header-row columns=columnHeaders action=(action 'sortBy')}}
+
+      {{#vertical-collection
+        clients.allClientsSorted
+        estimateHeight=30
+        tagName='div'
+        class="client-list"
+        bufferSize=3
+        as |client i|}}
+        {{client-row client}}
+      {{/vertical-collection}}
+    </div>
+  </div>
+</div>
+
+{{outlet}}
